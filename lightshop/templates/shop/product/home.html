@@ -1,24 +1,24 @@
 {% extends "shop/base.html" %}
 {% load static %}
 {% block title %}
-    {% if category %}{{ category.name }}{% else %}Products{% endif %}
+    Главная
 {% endblock %}
 {% block content %}
     <div class="container">
-        <div class="product-list row row-cols-1 row-cols-md-3 g-4" id="main">
+        <div class="product-list row row-cols-1 row-cols-md-2 g-4" id="main">
             {% for product in products %}
         <div class="col">
             <div class="card mb-5" style="max-width: 1000px;">
                 <div class="row g-5">
-                  <div class="col-md-5" style="max-width: 400px;">
+                  <div class="col-md-5" style="max-width: 250px;">
                     <a href="{{ product.get_absolute_url }}">
                     <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" width="200" height="200">
                     </a>
                   </div>
-                  <div class="col-md-7" style="max-width: 400px;">
+                  <div class="col-md-7" style="max-width: 250px;">
                     <div class="card-body">
-                      <h6 class="card-title">SCANDINAVIAN LIHTS</h5>
-                      <h4><a href="{{ product.get_absolute_url }}" >{{ product.name }}</a></h4> 
+                      <h7 class="card-title">SCANDINAVIAN LIHTS</h7>
+                      <h5><a href="{{ product.get_absolute_url }}" >{{ product.name }}</a></h5> 
                       <p class="card-text">${{ product.price }}</p>
                       <button type="button" class="btn btn-dark">Купить</button>
                     </div>
@@ -32,8 +32,15 @@
     
 {% endblock %}
 
-
-
 {% block titlePage %}
-    <h2>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h2>
+    <h2>Топ продаж</h1>
+    <h6>Наиболее популярные товары в последнее время.</h3>
 {% endblock %}
+
+{% block title2Page %}
+    <h2>Распродажа</h1>
+    <h6>Успей приобрести до 25 января включительно.</h3>
+{% endblock %}
+
+
+

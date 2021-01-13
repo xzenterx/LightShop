@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+
+import dj_database_url
+
+
+
 from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +32,7 @@ SECRET_KEY = '4uvb=(81%^0v^^zz#5j)%185nx%6xifgb&+gtk8lynaqc88+%q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,6 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
@@ -142,3 +148,5 @@ LOGOUT_REDIRECT_URL = '/'
 
 CART_SESSION_ID = 'cart'
 
+db_from_env = dj_database_url.config()
+DATABASE['default'].update(db_from_env)

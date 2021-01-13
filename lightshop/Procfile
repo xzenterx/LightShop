@@ -1,0 +1,1 @@
+web: gunicorn lightshop.wsgi --log-file -

@@ -50,6 +50,13 @@ class Cart(object):
             del self.cart[product_id]
             self.save()
 
+    def get_total_price(self):
+        """
+        Подсчет стоимости товаров в корзине.
+        """
+        return sum(Decimal(item['price']) * item['quantity'] for item in
+                   self.cart.values())
+
     def __iter__(self):
         """
         Перебор элементов в корзине и получение продуктов из базы данных.

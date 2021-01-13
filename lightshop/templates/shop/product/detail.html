@@ -17,7 +17,7 @@
                       <h7 class="card-title">SCANDINAVIAN LIHTS</h7>
                       <h5><a href="{{ product.get_absolute_url }}" >{{ product.name }}</a></h5> 
                       <p class="card-text">${{ product.price }}</p>
-                      <button type="button" class="btn btn-dark">Купить</button>
+{#                      <button type="button" class="btn btn-dark">Купить</button>#}
 
                         <form action="{% url 'cart:cart_add' product.id %}" method="post">
                         {{ cart_product_form }}

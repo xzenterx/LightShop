@@ -1,9 +1,11 @@
 {% extends  'shop/base.html' %}
 {% block title %}Log-in{% endblock %}
 {% block content %}
+    <div class="container">
+
     {% if request.user.is_authenticated %}
     <p>Вы вошли в свой аккаунт</p>
-    <a  href="{% url 'logout' %}">Выйти из аккаунта</a>
+    <a  href="{% url 'logout' %}" class="btn btn-light">Выйти из аккаунта</a>
     {% else %}
     <h1>Log-in</h1>
     <p>Please, use the following form to log-in:</p>
@@ -12,6 +14,9 @@
         {% csrf_token %}
         <p><input type="submit" value="Log-in"></p>
     </form>
-    <p><a href="/account/signup/">Зарегистрироваться</a></p>
+    <p><a href="/account/signup/" class="btn btn-light">Зарегистрироваться</a></p>
     {% endif %}
+
+    </div>
+
 {% endblock %}
